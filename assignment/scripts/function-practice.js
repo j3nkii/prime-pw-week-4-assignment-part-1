@@ -125,3 +125,32 @@ console.log(buttVille);
 // 11. Pick a problem from Edabit(https://edabit.com/) or 
 //     CodeWars(https://www.codewars.com/). Then describe it 
 //     here in a comment, write the function, and test it!
+
+// create a function that, when given two parameters, take the a string, and logs true if the 2nd is the ending of said string. otherwise it will log false.
+//     https://www.codewars.com/kata/51f2d1cafc9c0f745c00037d/train/javascript
+
+function solution(str, ending){
+  return str.endsWith(ending);
+}
+
+console.log('--------next----------');
+//Your task is to sort a given string. Each word in the string will contain a single number. This number is the position the word should have in the result.
+//Note: Numbers can be from 1 to 9. So 1 will be the first word (not 0).
+//If the input string is empty, return an empty string. The words in the input String will only contain valid consecutive numbers.
+
+function order(words) {
+  let array = words.split(' ')
+  let result = [];
+  for(word of array) {
+    for(letter of word) {
+      if(isNaN(letter) === false ) {
+        Number.parseInt(letter) - 1 > result.length ? array.push(word) : result.splice( Number.parseInt(letter) - 1, 0, word)
+      }
+    }
+  }
+  return result.join(' ');
+}
+
+console.log(order("is2 Thi1s T4est 3a"), "Should log: Thi1s is2 3a T4est")
+console.log(order("4of Fo1r pe6ople g3ood th5e the2"), "Should log: Fo1r the2 g3ood 4of th5e pe6ople")
+console.log(order(""), "empty input should return empty string" )
