@@ -68,11 +68,12 @@ console.log(`6: Last is: ${getLast(urDad)}`);
 //    value is found and false otherwise. Use a loop;
 //    DO NOT use Array.includes, Array.indexOf, or Array.find 
 function find( value, array ){
-  let found = false;
   for(let index of array) {
-    found = index === value ? true : false;
+    if (index === value){
+      return true;
+    }
   } 
-  return found;
+  return false;
 }
 
 let urGranny = ['Bob', 'Frank', 'Phillip', 'Wallace', 'Shirley',];
@@ -88,6 +89,7 @@ function isFirstLetter(letter, string) {
   let found = letter === string[0] ? true : false;
   return found;
 }
+
 console.log( '8: isFirstLetter - should say true', isFirstLetter('a', 'apple') );
 console.log( '8: isFirstLetter - should say false', isFirstLetter('z', 'apple') );
 
